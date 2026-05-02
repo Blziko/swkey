@@ -6,12 +6,14 @@ A simple tool to replace and automatically backup your `~/.ssh/` keys and `~/.gi
 
 ### Installation
 ```bash
+cd /opt
 git clone https://github.com/Blziko/swkey
 chmod +x swkey/swkey.pl
-sudo ln -sf $HOME/swkey/swkey.pl /usr/bin/swkey
+ln -sf swkey/swkey.pl /usr/bin/swkey
+cd
 ```
 
 ### Usage
 ```bash
-swkey --key=/myssh/key/path/ --gitconfig=/myconfig/path/ --type=ed25519
+swkey --key=<ssh_key_path> --gitconfig=<gitconfig_path> --type=<type>
 ```
