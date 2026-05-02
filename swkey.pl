@@ -34,7 +34,7 @@ if ($key_path) {
             copy($src, $dst) or die "Failed to copy $src: $!";
             my $mode = ($f =~ /\.pub$/) ? 0644 : 0600;
             chmod($mode, $dst);
-            print "Copying $f -> ~/.ssh (chmod " . sprintf("%o", $mode) . ")\n";
+            print "Copying: \033[0;32m$f \033[0m-> \033[0;32m~/.ssh/ \033[0m(chmod " . sprintf("%o", $mode) . ")\n";
         } else {
             warn "Warning: File $src not found.\n";
         }
@@ -48,7 +48,7 @@ if ($gitconfig_path) {
     if (-e $src) {
         backup_if_exists($dst);
         copy($src, $dst) or die "Failed to copy .gitconfig: $!";
-        print "Copying .gitconfig -> $ENV{HOME}\n";
+        print "Copying: \033[0;32m.gitconfig \033[0m-> \033[0;32m~/\033[0m\n";
     } else {
         warn "Warning: File $src not found.\n";
     }
@@ -60,6 +60,5 @@ sub backup_if_exists {
         my $timestamp = strftime("%H_%M_%d_%m", localtime);
         my $bak_file = "${file}_${timestamp}.bak";
         rename($file, $bak_file) or die "Failed to backup $file: $!";
-        print "Backup: $bak_file\n";
     }
 }
