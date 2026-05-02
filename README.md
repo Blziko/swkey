@@ -15,5 +15,5 @@ cd
 
 ### Usage
 ```bash
-swkey --key=<ssh_key_path> --gitconfig=<gitconfig_path> --type=<type>
+swkey --key=<ssh_key_path> --gitconfig=<gitconfig_path> --type=[<type>]
 ```
